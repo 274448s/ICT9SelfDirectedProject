@@ -2,9 +2,13 @@
 import tkinter as tk
 from tkinter import ttk
 
-root = tk.Tk("Better Calculator")
-root.title = "Better Calculator"
-
+# GUI
+root = tk.Tk()
+root.title("Better Calculator")
 rootframe = ttk.Frame(root, padding=(3, 3, 12, 12))
+
+# Style
+style = ttk.Style(root)
+
 
 root.mainloop()
