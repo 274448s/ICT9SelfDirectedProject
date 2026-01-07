@@ -10,5 +10,4 @@ rootframe = ttk.Frame(root, padding=(3, 3, 12, 12))
 # Style
 style = ttk.Style(root)
 
-
 root.mainloop()
