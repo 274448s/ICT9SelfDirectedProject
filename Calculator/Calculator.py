@@ -15,12 +15,14 @@ def switch():
 root = tk.Tk()
 # Variables
 scientific = tk.BooleanVar(value=False)
+NumberDisplayNumbers = tk.Variable(value="0")
 # GUI
 root.title("Better Calculator")
 rootframe = ttk.Frame(root, padding=(3, 3, 12, 12))
 root.resizable(False,False)
-togglescientific = ttk.Button(root, command=switch)
+togglescientific = ttk.Button(root, text="Scientific Mode",command=switch, width='900')
 togglescientific.pack()
+NumberDisplay = ttk.Label(root, text=NumberDisplayNumbers,)
 guiscienific()
 
 # Style
