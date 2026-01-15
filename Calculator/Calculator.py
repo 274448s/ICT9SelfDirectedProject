@@ -7,7 +7,7 @@ def guiscienific():
         root.geometry("900x600")
         NumberDisplay.config(width="900")
     else:
-        root.geometry("400x600")
+        root.geometry("280x473")
         NumberDisplay.config(width="400")
 def switch():
     scientific.set(not scientific.get())
@@ -34,9 +34,18 @@ def cmd(i) -> None:
         NumberDisplay.config(text=NumberDisplayNumbers.get())
         return
     else:
-        new = NumberDisplayNumbers.get() + (str(i))
-        NumberDisplayNumbers.set(new)
-        NumberDisplay.config(text=NumberDisplayNumbers.get())
+        if i in ["+", "-", "×", "÷"]:
+            if NumberDisplayNumbers.get()[-1:] in ["+", "-", "×", "÷"]:
+                return
+            else:
+                new = NumberDisplayNumbers.get() + (str(i))
+                NumberDisplayNumbers.set(new)
+                NumberDisplay.config(text=NumberDisplayNumbers.get())
+        else:
+            new = NumberDisplayNumbers.get() + (str(i))
+            NumberDisplayNumbers.set(new)
+            NumberDisplay.config(text=NumberDisplayNumbers.get())
+        print(NumberDisplayNumbers.get()[-1:])
 
 
 # Root
