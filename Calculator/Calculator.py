@@ -13,40 +13,8 @@ def switch():
     scientific.set(not scientific.get())
     guiscienific()
 
-def cmd(i) -> None:
-    if i == ".":
-        if "." in NumberDisplayNumbers.get():
-            return
-        else:
-            NumberDisplayNumbers.set(NumberDisplayNumbers.get() + i)
-            NumberDisplay.config(text=NumberDisplayNumbers.get())
-            return
-        
-    if i == "Backspace":
-        new = NumberDisplayNumbers.get()[:-1]
-        NumberDisplayNumbers.set(new)
-        NumberDisplay.config(text=NumberDisplayNumbers.get())
-        return
-    
-    if i == "CE":
-        NumberDisplayNumbers.set("")
-        NumberDisplay.config(text="0")
-        NumberDisplay.config(text=NumberDisplayNumbers.get())
-        return
-    else:
-        if i in ["+", "-", "×", "÷"]:
-            if NumberDisplayNumbers.get()[-1:] in ["+", "-", "×", "÷"]:
-                return
-            else:
-                new = NumberDisplayNumbers.get() + (str(i))
-                NumberDisplayNumbers.set(new)
-                NumberDisplay.config(text=NumberDisplayNumbers.get())
-        else:
-            new = NumberDisplayNumbers.get() + (str(i))
-            NumberDisplayNumbers.set(new)
-            NumberDisplay.config(text=NumberDisplayNumbers.get())
-        print(NumberDisplayNumbers.get()[-1:])
-
+def inputchar(char):
+    pass
 
 # Root
 root = tk.Tk()
@@ -60,18 +28,18 @@ root.resizable(False,False)
 togglescientific = ttk.Button(root, text="Scientific Mode",command=switch, width='900')
 togglescientific.pack()
 NumberDisplay = ttk.Label(root, text="0", width="900")
-NumberDisplay.config(font=("Arial", 80))
+NumberDisplay.config(font=("Arial", 60))
 NumberDisplay.pack()
 guiscienific()
 
 # Layout for Numpad
 btns_frame = ttk.Frame(root)
 btns_frame.pack(side="left", fill="y")
-a_Board = [["CE", "Backspace"], [7, 8, 9, "÷"], [4, 5, 6, "×"], [1, 2, 3, "+"], [".", 0, "-/+", "-"]]
+a_Board = [["CE", "Backspace", "=", ""], [7, 8, 9, "÷"], [4, 5, 6, "×"], [1, 2, 3, "+"], [".", 0, "-/+", "-"]]
 for row in range(len(a_Board)):
     for col in range(len(a_Board[row])):
         i = a_Board[row][col]
-        b = ttk.Button(btns_frame, text=str(i), command=lambda x=i: cmd(x), width="10")
+        b = ttk.Button(btns_frame, text=str(i), command=lambda x=i: inputchar(x), width="10")
         b.grid(row=row + 1, column=col, ipady="20")
 
 # Style
