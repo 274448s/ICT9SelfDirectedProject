@@ -24,10 +24,13 @@ def inputchar(char):
             num.set("")
             NumberDisplay.config(text=str(''.join(expres.get()) + num.get()))
     if char == "=":
-        pass
+        expres.set(list(express) + [num.get()])
+        num.set("")
+        num.set(eval("".join(expres.get())))
+        expres.set([])
     if str(char) in '9876543210':
         num.set(num.get() + str(char))
-    NumberDisplay.config(text=str(''.join(expres.get()) + num.get()))
+    NumberDisplay.config(text=str(''.join(expres.get()) + str(num.get())))
 
 # Root
 root = tk.Tk()
