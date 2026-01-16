@@ -19,11 +19,12 @@ def inputchar(char):
     if char in ["÷", "×", "+", "-"]:
         expres.set(list(express) + [num.get()] + [char])
         num.set("")
+        NumberDisplay.config(text=str(''.join(express) + num.get()))
     if char == "=":
         pass
     if str(char) in '9876543210':
         num.set(num.get() + str(char))
-    NumberDisplay.config(text=str())
+    NumberDisplay.config(text=str(''.join(express) + num.get()))
 
 # Root
 root = tk.Tk()
