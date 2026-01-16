@@ -1,6 +1,7 @@
 # Modules
 import tkinter as tk
 from tkinter import ttk
+import Parser
 # Functions
 def guiscienific():
     if scientific.get():
@@ -14,25 +15,21 @@ def switch():
     guiscienific()
 
 def inputchar(char):
-    return
-    number = num.get
     express = expres.get()
     if char in ["÷", "×", "+", "-"]:
-        expres.append[number]
+        expres.set(list(express) + [num.get()] + [char])
         num.set("")
-        expres.set(express)
-        return
-    elif char == "=":
+    if char == "=":
         pass
-    elif char in ["9", "8", "7", "6", "5", "4", "3", "2", "1", "0"]:
-
+    if str(char) in '9876543210':
+        num.set(num.get() + str(char))
+    NumberDisplay.config(text=str())
 
 # Root
 root = tk.Tk()
 # Variables
 scientific = tk.BooleanVar(value=False)
-NumberDisplayNumbers = tk.Variable(value="")
-expres = tk.Variable(value=[])
+expres = tk.Variable(value=[""])
 num = tk.Variable(value="")
 # GUI
 root.title("Better Calculator")

@@ -1,4 +1,4 @@
-def calculate(string: str) -> str:
+def calculate(list) -> str:
     numbers = []
     operators = []
     
