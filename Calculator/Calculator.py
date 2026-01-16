@@ -17,14 +17,17 @@ def switch():
 def inputchar(char):
     express = expres.get()
     if char in ["÷", "×", "+", "-"]:
-        expres.set(list(express) + [num.get()] + [char])
-        num.set("")
-        NumberDisplay.config(text=str(''.join(express) + num.get()))
+        if char == express[-1] and num.get() == "":
+            return
+        else:
+            expres.set(list(express) + [num.get()] + [char])
+            num.set("")
+            NumberDisplay.config(text=str(''.join(expres.get()) + num.get()))
     if char == "=":
         pass
     if str(char) in '9876543210':
         num.set(num.get() + str(char))
-    NumberDisplay.config(text=str(''.join(express) + num.get()))
+    NumberDisplay.config(text=str(''.join(expres.get()) + num.get()))
 
 # Root
 root = tk.Tk()
