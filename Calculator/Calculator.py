@@ -16,6 +16,7 @@ def switch():
 
 def inputchar(char):
     express = expres.get()
+    print(express)
     if char in ["÷", "×", "+", "-"]:
         if char == express[-1] and num.get() == "":
             return
@@ -26,10 +27,12 @@ def inputchar(char):
     if char == "=":
         expres.set(list(express) + [num.get()])
         num.set("")
-        num.set(eval("".join(expres.get())))
         expres.set([])
     if str(char) in '9876543210':
         num.set(num.get() + str(char))
+    if str(char) == "CE":
+        num.set("")
+        expres.set([""])
     NumberDisplay.config(text=str(''.join(expres.get()) + str(num.get())))
 
 # Root
