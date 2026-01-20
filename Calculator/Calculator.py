@@ -3,17 +3,6 @@ import tkinter as tk
 from tkinter import ttk
 import Parser
 # Functions
-def guiscienific():
-    if scientific.get():
-        root.geometry("900x600")
-        NumberDisplay.config(width="900")
-    else:
-        root.geometry("280x473")
-        NumberDisplay.config(width="400")
-def switch():
-    scientific.set(not scientific.get())
-    guiscienific()
-
 def inputchar(char):
     express = expres.get()
     print(express)
@@ -26,8 +15,8 @@ def inputchar(char):
             NumberDisplay.config(text=str(''.join(expres.get()) + num.get()))
     if char == "=":
         expres.set(list(express) + [num.get()])
-        num.set("")
-        expres.set([])
+        num.set(eval(''.join(expres.get())))
+        expres.set([""])
     if str(char) in '9876543210':
         num.set(num.get() + str(char))
     if str(char) == "CE":
@@ -45,17 +34,15 @@ num = tk.Variable(value="")
 root.title("Better Calculator")
 rootframe = ttk.Frame(root, padding=(3, 3, 12, 12))
 root.resizable(False,False)
-togglescientific = ttk.Button(root, text="Scientific Mode",command=switch, width='900')
-togglescientific.pack()
+root.geometry("280x473")
 NumberDisplay = ttk.Label(root, text="0", width="900")
 NumberDisplay.config(font=("Arial", 60))
 NumberDisplay.pack()
-guiscienific()
 
 # Layout for Numpad
 btns_frame = ttk.Frame(root)
 btns_frame.pack(side="left", fill="y")
-a_Board = [["CE", "Backspace", "=", ""], [7, 8, 9, "÷"], [4, 5, 6, "×"], [1, 2, 3, "+"], [".", 0, "-/+", "-"]]
+a_Board = [["CE", "Backspace", "=", "-/+"], [7, 8, 9, "÷"], [4, 5, 6, "×"], [1, 2, 3, "+"], [".", 0, "-/+", "-"]]
 for row in range(len(a_Board)):
     for col in range(len(a_Board[row])):
         i = a_Board[row][col]

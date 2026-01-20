@@ -12,3 +12,10 @@ def calculate(list) -> str:
 
             elif i == "÷":
                 pass
+
+            elif i == "+" or "-": #AS Part
+                if i == "+":
+                    pass
+
+                elif i == "-":
+                    pass
