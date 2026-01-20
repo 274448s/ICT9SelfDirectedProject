@@ -4,11 +4,11 @@ def calculate(list) -> str:
     
     #BEDMAS
 
-    for i in operators:
-        if i == "MULTIPLY" or "DIVIDE":
+    for i in operators: #DM part
+        if i == "÷" or "×":
 
-            if i == "MULTIPLY":
+            if i == "×":
                 pass
 
-            elif i == "DIVIDE":
+            elif i == "÷":
                 pass
